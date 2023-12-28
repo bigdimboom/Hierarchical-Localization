@@ -8,15 +8,15 @@ import matplotlib.pyplot as plt
 
 
 def main_function_v1():
-    # images = Path('/home/bob/Data/NHR/basketball/img/0')
+    images = Path('/home/bob/Data/NHR/basketball/img/0')
     # images = Path('/home/bob/VolcapProjects/Hierarchical-Localization/datasets/images/piano2_mapping')
     # images = Path('/home/bob/VolcapProjects/Hierarchical-Localization/datasets/images/mafia1_mapping')
-    images = Path('/home/bob/Data/Denny/10_frames_matn_with_beard_6_manual_calibration/0_gaussian/input')
+    # images = Path('/home/bob/Data/Denny/10_frames_matn_with_beard_6_manual_calibration/0_gaussian/input')
 
-    # outputs = Path('outputs/baller/')
+    outputs = Path('outputs/baller/')
     # outputs = Path('outputs/piano/')
     # outputs = Path('outputs/mafia1/')
-    outputs = Path('outputs/denny/warehouse')
+    # outputs = Path('outputs/denny/warehouse')
 
     sfm_pairs = outputs / 'pairs-netvlad.txt'
     sfm_dir = outputs / 'sfm'
@@ -29,7 +29,7 @@ def main_function_v1():
 
     feature_conf["model"]["max_keypoints"] = 2000
     feature_conf["preprocessing"]["resize_max"] = 1024
-    feature_conf["preprocessing"]["grayscale"] = True
+    feature_conf["preprocessing"]["grayscale"] = False
 
     retrieval_path = extract_features.main(retrieval_conf, images, outputs)
     pairs_from_retrieval.main(retrieval_path, sfm_pairs, num_matched=7)
